@@ -1,23 +1,22 @@
-
 from pathlib import Path
-
-# Build paths inside the project
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# SECURITY WARNING: keep the secret key used in production secret!
 import os
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 SECRET_KEY = os.environ.get(
-    "DJANGO_SECRET_KEY",
+    "SECRET_KEY",
     "django-insecure-surgery-patient-journey-prototype-key"
 )
 
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
 
-ALLOWED_HOSTS = []
+if os.environ.get("RENDER_EXTERNAL_HOSTNAME"):
+    ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTNAME"])
 
 
 # Application definition
@@ -111,7 +110,5 @@ USE_TZ = True
 # Static files
 # No custom static folder is being used.
 STATIC_URL = "static/"
-
-
-# Default primary key field type
+STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
