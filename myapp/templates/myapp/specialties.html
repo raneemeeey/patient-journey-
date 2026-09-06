@@ -1,0 +1,778 @@
+
+{% extends "myapp/base.html" %}
+
+{% block title %}
+PatientJourney | Understand Your Surgical Journey
+{% endblock %}
+
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<section
+    style="
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        background:
+        linear-gradient(
+            90deg,
+            rgba(8, 47, 73, 0.94),
+            rgba(8, 47, 73, 0.72),
+            rgba(8, 47, 73, 0.20)
+        ),
+        url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1800&q=85');
+        background-size: cover;
+        background-position: center;
+        color: white;
+    "
+>
+
+    <div
+        class="container"
+        style="
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        "
+    >
+
+        <div>
+
+            <div
+                style="
+                    display: inline-block;
+                    padding: 8px 16px;
+                    border-radius: 30px;
+                    background: rgba(255,255,255,0.15);
+                    border: 1px solid rgba(255,255,255,0.25);
+                    font-size: 13px;
+                    font-weight: 600;
+                    margin-bottom: 22px;
+                "
+            >
+                ✦ YOUR SURGICAL JOURNEY
+            </div>
+
+
+            <h1
+                style="
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(42px, 5vw, 72px);
+                    line-height: 1.05;
+                    margin: 0 0 25px 0;
+                "
+            >
+                Know what to expect.
+                <br>
+
+                <span style="color: #7dd3fc;">
+                    Feel prepared.
+                </span>
+            </h1>
+
+
+            <p
+                style="
+                    max-width: 650px;
+                    font-size: 18px;
+                    line-height: 1.8;
+                    color: #e0f2fe;
+                    margin-bottom: 35px;
+                "
+            >
+                Surgery can feel overwhelming when you don't know
+                what happens next. PatientJourney guides you through
+                preparation, surgery, recovery, discharge and
+                follow-up in simple, patient-friendly language.
+            </p>
+
+
+            <a
+                href="#specialties"
+                style="
+                    display: inline-block;
+                    padding: 15px 28px;
+                    background: white;
+                    color: #075985;
+                    border-radius: 30px;
+                    font-weight: 700;
+                    transition: 0.3s;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+                "
+                onmouseover="this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.transform='translateY(0)'"
+            >
+                Explore Surgical Journeys →
+            </a>
+
+        </div>
+
+
+        <!-- HERO INFORMATION CARD -->
+
+        <div
+            style="
+                background: rgba(255,255,255,0.12);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.22);
+                border-radius: 25px;
+                padding: 30px;
+                box-shadow: 0 25px 60px rgba(0,0,0,0.20);
+                animation: floatingCard 4s ease-in-out infinite;
+            "
+        >
+
+            <div style="font-size: 42px; margin-bottom: 15px;">
+                🩺
+            </div>
+
+            <h3 style="font-size: 24px; margin: 0 0 12px 0;">
+                Your journey, explained.
+            </h3>
+
+            <p
+                style="
+                    line-height: 1.7;
+                    color: #e0f2fe;
+                    font-size: 14px;
+                "
+            >
+                Follow your surgical journey step-by-step,
+                from the first preparation to recovery and
+                life after surgery.
+            </p>
+
+
+            <div
+                style="
+                    margin-top: 25px;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                "
+            >
+
+                <div
+                    style="
+                        padding: 15px;
+                        border-radius: 15px;
+                        background: rgba(255,255,255,0.10);
+                    "
+                >
+                    <strong>01</strong>
+                    <br>
+                    <small>Preparation</small>
+                </div>
+
+
+                <div
+                    style="
+                        padding: 15px;
+                        border-radius: 15px;
+                        background: rgba(255,255,255,0.10);
+                    "
+                >
+                    <strong>02</strong>
+                    <br>
+                    <small>Surgery</small>
+                </div>
+
+
+                <div
+                    style="
+                        padding: 15px;
+                        border-radius: 15px;
+                        background: rgba(255,255,255,0.10);
+                    "
+                >
+                    <strong>03</strong>
+                    <br>
+                    <small>Recovery</small>
+                </div>
+
+
+                <div
+                    style="
+                        padding: 15px;
+                        border-radius: 15px;
+                        background: rgba(255,255,255,0.10);
+                    "
+                >
+                    <strong>04</strong>
+                    <br>
+                    <small>Follow-up</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section
+    style="
+        padding: 90px 0;
+        background: white;
+        text-align: center;
+    "
+>
+
+    <div class="container">
+
+        <div
+            style="
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                color: #0b7285;
+                margin-bottom: 12px;
+            "
+        >
+            DESIGNED AROUND THE PATIENT
+        </div>
+
+
+        <h2
+            style="
+                font-family: 'Playfair Display', serif;
+                font-size: 42px;
+                margin: 0 0 20px 0;
+            "
+        >
+            Surgery doesn't have to feel confusing.
+        </h2>
+
+
+        <p
+            style="
+                max-width: 720px;
+                margin: auto;
+                line-height: 1.8;
+                color: #607080;
+                font-size: 16px;
+            "
+        >
+            Choose your area of treatment and explore an interactive
+            journey designed to help you understand what may happen
+            before, during and after a procedure.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SPECIALTIES -->
+
+<section
+    id="specialties"
+    style="
+        padding: 80px 0 100px 0;
+        background: #f5f9fc;
+    "
+>
+
+    <div class="container">
+
+        <div style="text-align: center; margin-bottom: 50px;">
+
+            <div
+                style="
+                    color: #0b7285;
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                "
+            >
+                EXPLORE
+            </div>
+
+            <h2
+                style="
+                    font-family: 'Playfair Display', serif;
+                    font-size: 42px;
+                    margin: 10px 0;
+                "
+            >
+                Choose a Specialty
+            </h2>
+
+            <p style="color: #607080;">
+                Select your surgical specialty to begin your journey.
+            </p>
+
+        </div>
+
+
+        <!-- SPECIALTY CARDS -->
+
+        <div
+            style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            "
+        >
+
+
+            <!-- GENERAL SURGERY -->
+
+            <a
+                href="#"
+                style="
+                    background: white;
+                    border-radius: 22px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
+                    transition: 0.35s;
+                    display: block;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.boxShadow='0 20px 45px rgba(15,23,42,0.13)'
+                "
+                onmouseout="
+                    this.style.transform='translateY(0)';
+                    this.style.boxShadow='0 8px 30px rgba(15,23,42,0.07)'
+                "
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80"
+                    alt="General surgery"
+                    style="
+                        width: 100%;
+                        height: 220px;
+                        object-fit: cover;
+                    "
+                >
+
+                <div style="padding: 25px;">
+
+                    <div style="font-size: 30px;">
+                        🏥
+                    </div>
+
+                    <h3 style="font-size: 22px;">
+                        General Surgery
+                    </h3>
+
+                    <p
+                        style="
+                            color: #687782;
+                            line-height: 1.6;
+                            font-size: 14px;
+                        "
+                    >
+                        Explore common procedures and understand
+                        what your surgical journey may involve.
+                    </p>
+
+                    <strong style="color: #0b7285;">
+                        Explore →
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <!-- NEURO SURGERY -->
+
+            <a
+                href="#"
+                style="
+                    background: white;
+                    border-radius: 22px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
+                    transition: 0.35s;
+                    display: block;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.boxShadow='0 20px 45px rgba(15,23,42,0.13)'
+                "
+                onmouseout="
+                    this.style.transform='translateY(0)';
+                    this.style.boxShadow='0 8px 30px rgba(15,23,42,0.07)'
+                "
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
+                    alt="Neurosurgery"
+                    style="
+                        width: 100%;
+                        height: 220px;
+                        object-fit: cover;
+                    "
+                >
+
+                <div style="padding: 25px;">
+
+                    <div style="font-size: 30px;">
+                        🧠
+                    </div>
+
+                    <h3 style="font-size: 22px;">
+                        Neurosurgery
+                    </h3>
+
+                    <p
+                        style="
+                            color: #687782;
+                            line-height: 1.6;
+                            font-size: 14px;
+                        "
+                    >
+                        Learn about neurological surgical procedures
+                        and the stages of recovery.
+                    </p>
+
+                    <strong style="color: #0b7285;">
+                        Explore →
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <!-- PLASTIC SURGERY -->
+
+            <a
+                href="{% url 'subspecialties' 'plastic' %}"
+                style="
+                    background: white;
+                    border-radius: 22px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
+                    transition: 0.35s;
+                    display: block;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.boxShadow='0 20px 45px rgba(15,23,42,0.13)'
+                "
+                onmouseout="
+                    this.style.transform='translateY(0)';
+                    this.style.boxShadow='0 8px 30px rgba(15,23,42,0.07)'
+                "
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=900&q=80"
+                    alt="Plastic surgery"
+                    style="
+                        width: 100%;
+                        height: 220px;
+                        object-fit: cover;
+                    "
+                >
+
+                <div style="padding: 25px;">
+
+                    <div style="font-size: 30px;">
+                        ✋
+                    </div>
+
+                    <h3 style="font-size: 22px;">
+                        Plastic Surgery
+                    </h3>
+
+                    <p
+                        style="
+                            color: #687782;
+                            line-height: 1.6;
+                            font-size: 14px;
+                        "
+                    >
+                        Explore reconstructive and plastic surgery
+                        journeys, including hand surgery.
+                    </p>
+
+                    <strong style="color: #0b7285;">
+                        Explore →
+                    </strong>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section
+    style="
+        padding: 90px 0;
+        background: white;
+    "
+>
+
+    <div class="container">
+
+        <div style="text-align: center; margin-bottom: 55px;">
+
+            <div
+                style="
+                    color: #0b7285;
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                "
+            >
+                HOW IT WORKS
+            </div>
+
+            <h2
+                style="
+                    font-family: 'Playfair Display', serif;
+                    font-size: 40px;
+                "
+            >
+                Your journey in four simple steps
+            </h2>
+
+        </div>
+
+
+        <div
+            style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+                text-align: center;
+            "
+        >
+
+            <div>
+
+                <div
+                    style="
+                        width: 65px;
+                        height: 65px;
+                        margin: auto;
+                        border-radius: 50%;
+                        background: #e0f2fe;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 25px;
+                    "
+                >
+                    01
+                </div>
+
+                <h3>Choose</h3>
+
+                <p style="color: #71808c; line-height: 1.6;">
+                    Select your surgical specialty.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    style="
+                        width: 65px;
+                        height: 65px;
+                        margin: auto;
+                        border-radius: 50%;
+                        background: #e0f2fe;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 25px;
+                    "
+                >
+                    02
+                </div>
+
+                <h3>Explore</h3>
+
+                <p style="color: #71808c; line-height: 1.6;">
+                    Select your specific procedure.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    style="
+                        width: 65px;
+                        height: 65px;
+                        margin: auto;
+                        border-radius: 50%;
+                        background: #e0f2fe;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 25px;
+                    "
+                >
+                    03
+                </div>
+
+                <h3>Understand</h3>
+
+                <p style="color: #71808c; line-height: 1.6;">
+                    Learn what happens at every stage.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    style="
+                        width: 65px;
+                        height: 65px;
+                        margin: auto;
+                        border-radius: 50%;
+                        background: #e0f2fe;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 25px;
+                    "
+                >
+                    04
+                </div>
+
+                <h3>Prepare</h3>
+
+                <p style="color: #71808c; line-height: 1.6;">
+                    Know what to expect after surgery.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PATIENT HELP -->
+
+<section
+    id="help"
+    style="
+        padding: 80px 0;
+        background: #e0f2fe;
+    "
+>
+
+    <div class="container">
+
+        <div
+            style="
+                max-width: 850px;
+                margin: auto;
+                text-align: center;
+            "
+        >
+
+            <div style="font-size: 45px;">
+                💙
+            </div>
+
+            <h2
+                style="
+                    font-family: 'Playfair Display', serif;
+                    font-size: 38px;
+                "
+            >
+                Information that puts patients first.
+            </h2>
+
+            <p
+                style="
+                    color: #52616b;
+                    line-height: 1.8;
+                "
+            >
+                Our goal is to make medical information easier to
+                understand so patients and families can have better
+                conversations with their healthcare team.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ANIMATION -->
+
+<style>
+
+@keyframes floatingCard {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+
+    section .container {
+        grid-template-columns: 1fr !important;
+    }
+
+    section div[style*="repeat(3"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    section div[style*="repeat(4"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    section div[style*="repeat(2"] {
+        grid-template-columns: 1fr !important;
+    }
+
+}
+
+</style>
+
+{% endblock %}

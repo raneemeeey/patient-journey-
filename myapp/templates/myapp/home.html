@@ -1,0 +1,512 @@
+
+{% extends "myapp/base.html" %}
+
+{% block title %}
+PatientJourney | Home
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .hero {
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background:
+            linear-gradient(90deg, rgba(5, 35, 50, 0.88), rgba(5, 35, 50, 0.35)),
+            url("https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1800&q=85");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 86%;
+        max-width: 1250px;
+        margin: auto;
+        color: white;
+        animation: heroEnter 1s ease;
+    }
+
+    .hero-content h1 {
+        max-width: 750px;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(42px, 6vw, 72px);
+        line-height: 1.1;
+        margin: 0 0 25px;
+    }
+
+    .hero-content h1 span {
+        color: #7dd3fc;
+    }
+
+    .hero-content p {
+        max-width: 650px;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #e5f3f8;
+        margin-bottom: 35px;
+    }
+
+    .hero-button {
+        display: inline-block;
+        padding: 15px 28px;
+        background: #0b7285;
+        color: white;
+        border-radius: 30px;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .hero-button:hover {
+        transform: translateY(-4px);
+        background: #1098ad;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: #102a43;
+    }
+
+    .section-heading p {
+        max-width: 650px;
+        margin: auto;
+        color: #607d8b;
+        line-height: 1.7;
+    }
+
+    .specialty-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+
+    .specialty-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 35px rgba(16, 42, 67, 0.08);
+        transition: 0.35s;
+        border: 1px solid #e7eef3;
+    }
+
+    .specialty-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 45px rgba(16, 42, 67, 0.14);
+    }
+
+    .specialty-image {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .specialty-content {
+        padding: 28px;
+    }
+
+    .specialty-content h3 {
+        margin: 0 0 12px;
+        font-size: 23px;
+        color: #102a43;
+    }
+
+    .specialty-content p {
+        color: #607d8b;
+        line-height: 1.7;
+        min-height: 75px;
+    }
+
+    .explore-button {
+        display: inline-block;
+        margin-top: 15px;
+        color: #0b7285;
+        font-weight: 700;
+    }
+
+    .coming-soon {
+        display: inline-block;
+        margin-top: 15px;
+        color: #8998a5;
+        font-weight: 700;
+    }
+
+    .info-section {
+        background: white;
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .step {
+        padding: 30px;
+        background: #f5f9fc;
+        border-radius: 18px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .step:hover {
+        transform: translateY(-6px);
+    }
+
+    .step-number {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background: #0b7285;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 18px;
+    }
+
+    .step h3 {
+        color: #102a43;
+        margin-bottom: 10px;
+    }
+
+    .step p {
+        color: #607d8b;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .help-box {
+        background: linear-gradient(135deg, #0b7285, #102a43);
+        color: white;
+        border-radius: 25px;
+        padding: 55px;
+        text-align: center;
+    }
+
+    .help-box h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 38px;
+        margin-top: 0;
+    }
+
+    .help-box p {
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.8;
+        color: #dceff5;
+    }
+
+    @keyframes heroEnter {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .specialty-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .steps {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero {
+            min-height: 550px;
+        }
+
+        .hero-content {
+            width: 90%;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .steps {
+            grid-template-columns: 1fr;
+        }
+
+        .help-box {
+            padding: 35px 20px;
+        }
+    }
+</style>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Understand Your
+            <span>Surgical Journey.</span>
+        </h1>
+
+        <p>
+            Surgery can feel overwhelming when you don't know what to expect.
+            PatientJourney explains the stages of surgery in a simple,
+            patient-friendly way — from preparation to recovery.
+        </p>
+
+        <a href="#specialties" class="hero-button">
+            Explore Surgical Journeys →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SPECIALTIES -->
+
+<section class="section" id="specialties">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>Explore Surgical Specialties</h2>
+
+            <p>
+                Choose a surgical specialty to explore the procedures,
+                preparation, recovery and follow-up information available
+                in our patient journey.
+            </p>
+
+        </div>
+
+
+        <div class="specialty-grid">
+
+
+            <!-- GENERAL SURGERY -->
+
+            <div class="specialty-card">
+
+                <img
+                    class="specialty-image"
+                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80"
+                    alt="General surgery">
+
+                <div class="specialty-content">
+
+                    <h3>General Surgery</h3>
+
+                    <p>
+                        Explore common surgical procedures and learn what
+                        patients may experience before, during and after surgery.
+                    </p>
+
+                    <span class="coming-soon">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NEUROSURGERY -->
+
+            <div class="specialty-card">
+
+                <img
+                    class="specialty-image"
+                    src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
+                    alt="Neurosurgery">
+
+                <div class="specialty-content">
+
+                    <h3>Neurosurgery</h3>
+
+                    <p>
+                        Learn about surgical journeys involving the brain,
+                        spine and nervous system.
+                    </p>
+
+                    <span class="coming-soon">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLASTIC SURGERY -->
+
+            <div class="specialty-card">
+
+                <img
+                    class="specialty-image"
+                    src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=900&q=80"
+                    alt="Plastic surgery">
+
+                <div class="specialty-content">
+
+                    <h3>Plastic Surgery</h3>
+
+                    <p>
+                        Explore reconstructive and hand surgery journeys
+                        designed to help patients understand their recovery.
+                    </p>
+
+                    <a
+                        href="{% url 'subspecialties' 'plastic' %}"
+                        class="explore-button"
+                    >
+                        Explore Plastic Surgery →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section info-section" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>How PatientJourney Works</h2>
+
+            <p>
+                Follow a simple step-by-step journey to understand
+                the different stages surrounding a surgical procedure.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>Choose</h3>
+
+                <p>
+                    Select a surgical specialty and procedure.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>Understand</h3>
+
+                <p>
+                    Learn what happens before and during the procedure.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>Recover</h3>
+
+                <p>
+                    Explore wound care, rehabilitation and recovery.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    4
+                </div>
+
+                <h3>Follow Up</h3>
+
+                <p>
+                    Understand discharge, follow-up appointments and
+                    life after surgery.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PATIENT HELP -->
+
+<section class="section" id="help">
+
+    <div class="container">
+
+        <div class="help-box">
+
+            <h2>Patient Help</h2>
+
+            <p>
+                Our goal is to make medical information easier to understand.
+                PatientJourney provides educational information to help you
+                prepare questions and understand the general stages of care.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

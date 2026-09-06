@@ -1,0 +1,300 @@
+
+{% extends "myapp/base.html" %}
+
+{% block title %}
+Hand Surgery | PatientJourney
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .surgeries-page {
+        padding: 80px 0;
+    }
+
+    .page-header {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 55px;
+        animation: fadeUp 0.8s ease;
+    }
+
+    .page-label {
+        display: inline-block;
+        background: #dff6f8;
+        color: #0b7285;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .page-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        color: #102a43;
+        margin: 0 0 18px;
+    }
+
+    .page-header p {
+        color: #627d98;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .surgery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .surgery-card {
+        background: white;
+        border: 1px solid #e5edf3;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(16, 42, 67, 0.08);
+        transition: 0.35s ease;
+        animation: fadeUp 0.8s ease;
+    }
+
+    .surgery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 45px rgba(16, 42, 67, 0.14);
+    }
+
+    .surgery-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .surgery-content {
+        padding: 30px;
+    }
+
+    .surgery-tag {
+        display: inline-block;
+        background: #edf8fa;
+        color: #0b7285;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 7px 12px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+    }
+
+    .surgery-content h2 {
+        font-size: 25px;
+        color: #102a43;
+        margin: 0 0 14px;
+    }
+
+    .surgery-content p {
+        color: #627d98;
+        line-height: 1.7;
+        font-size: 15px;
+        margin-bottom: 22px;
+    }
+
+    .journey-info {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
+
+    .info-item {
+        background: #f5f9fc;
+        padding: 12px 15px;
+        border-radius: 12px;
+        font-size: 13px;
+        color: #52616b;
+    }
+
+    .info-item strong {
+        color: #102a43;
+    }
+
+    .journey-button {
+        display: inline-block;
+        background: #0b7285;
+        color: white;
+        padding: 13px 22px;
+        border-radius: 28px;
+        font-size: 14px;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .journey-button:hover {
+        background: #095c6b;
+        transform: translateX(5px);
+    }
+
+    .coming-soon {
+        opacity: 0.75;
+    }
+
+    .coming-soon .journey-button {
+        background: #829ab1;
+        cursor: default;
+    }
+
+    .coming-soon .journey-button:hover {
+        transform: none;
+        background: #829ab1;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 750px) {
+        .surgeries-page {
+            padding: 55px 0;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+        }
+
+        .surgery-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+<div class="container surgeries-page">
+
+    <div class="page-header">
+
+        <div class="page-label">
+            PLASTIC SURGERY → HAND SURGERY
+        </div>
+
+        <h1>
+            Hand Surgery Procedures
+        </h1>
+
+        <p>
+            Select a procedure to explore a patient-friendly
+            journey covering preparation, surgery, recovery,
+            discharge and follow-up.
+        </p>
+
+    </div>
+
+
+    <div class="surgery-grid">
+
+        <!-- FLEXOR TENDON ZONE 5 -->
+
+        <div class="surgery-card">
+
+            <img
+                class="surgery-image"
+                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85"
+                alt="Medical procedure"
+            >
+
+            <div class="surgery-content">
+
+                <span class="surgery-tag">
+                    FEATURED JOURNEY
+                </span>
+
+                <h2>
+                    Flexor Tendon Injury — Zone 5
+                </h2>
+
+                <p>
+                    An interactive educational journey explaining
+                    what a patient may experience when a flexor
+                    tendon injury in Zone 5 requires surgical repair.
+                </p>
+
+                <div class="journey-info">
+
+                    <div class="info-item">
+                        <strong>Area:</strong> Hand / Wrist
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Journey:</strong> Before → After
+                    </div>
+
+                </div>
+
+                <a
+                    href="{% url 'surgery_detail' 'flexor-tendon-zone-5' %}"
+                    class="journey-button"
+                >
+                    Start Patient Journey →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMING SOON -->
+
+        <div class="surgery-card coming-soon">
+
+            <img
+                class="surgery-image"
+                src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=85"
+                alt="Healthcare procedure"
+            >
+
+            <div class="surgery-content">
+
+                <span class="surgery-tag">
+                    COMING SOON
+                </span>
+
+                <h2>
+                    Other Hand Procedures
+                </h2>
+
+                <p>
+                    More patient journeys covering different hand
+                    injuries and surgical procedures will be added
+                    to the platform.
+                </p>
+
+                <div class="journey-info">
+
+                    <div class="info-item">
+                        <strong>Status:</strong> In Development
+                    </div>
+
+                </div>
+
+                <span class="journey-button">
+                    Coming Soon
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="A patient-friendly interactive surgical journey explaining preparation, surgery, recovery, discharge and follow-up.">
+
+    <title>
+        {% block title %}
+        Patient Journey
+        {% endblock %}
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           GLOBAL
+        ============================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f5f9fc;
+            color: #17202a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ==============================
+           NAVIGATION
+        ============================== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            padding: 18px 7%;
+
+            border-bottom: 1px solid #e5edf3;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* ==============================
+           LOGO
+        ============================== */
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0b7285;
+
+            transition: 0.3s;
+        }
+
+        .logo span {
+            color: #17202a;
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+
+        /* ==============================
+           NAV LINKS
+        ============================== */
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #52616b;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0b7285;
+        }
+
+
+        /* ==============================
+           HOME BUTTON
+        ============================== */
+
+        .home-button {
+            background: #0b7285;
+            color: white !important;
+
+            padding: 10px 18px;
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            background: #095c6b;
+        }
+
+
+        /* ==============================
+           MAIN CONTENT
+        ============================== */
+
+        main {
+            min-height: 80vh;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+
+        /* ==============================
+           PAGE ANIMATION
+        ============================== */
+
+        .page-content {
+            animation: pageEnter 0.7s ease;
+        }
+
+        @keyframes pageEnter {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            margin-top: 70px;
+
+            background: #102a43;
+            color: white;
+
+            padding: 45px 7%;
+        }
+
+        .footer-container {
+            max-width: 1250px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            max-width: 500px;
+
+            color: #c8d6e5;
+
+            line-height: 1.7;
+        }
+
+        .medical-note {
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-left: 4px solid #4dabf7;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            color: #d9e6f2;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVIGATION
+    ============================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+
+            <!-- LOGO -->
+
+            <a href="/" class="logo">
+
+                Patient<span>Journey</span>
+
+            </a>
+
+
+            <!-- NAVIGATION LINKS -->
+
+            <div class="nav-links">
+
+
+                <!-- HOME -->
+
+                <a href="/" class="home-button">
+
+                    Home
+
+                </a>
+
+
+                <!-- ABOUT -->
+
+                <a href="#about">
+
+                    About
+
+                </a>
+
+
+                <!-- PATIENT HELP -->
+
+                <a href="#help">
+
+                    Patient Help
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    ============================== -->
+
+    <main>
+
+        <div class="page-content">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+
+    </main>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <!-- FOOTER DESCRIPTION -->
+
+            <div>
+
+                <div class="footer-title">
+
+                    PatientJourney
+
+                </div>
+
+
+                <p class="footer-text">
+
+                    A patient-friendly educational platform designed
+                    to help people understand what to expect before,
+                    during and after surgery.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEDICAL DISCLAIMER -->
+
+            <div>
+
+                <strong>
+
+                    Important
+
+                </strong>
+
+
+                <div class="medical-note">
+
+                    This website is an educational prototype.
+                    Information provided here is for general
+                    understanding and does not replace advice,
+                    diagnosis or treatment from your healthcare team.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==============================
+         PAGE-SPECIFIC JAVASCRIPT
+    ============================== -->
+
+    {% block scripts %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>
+
